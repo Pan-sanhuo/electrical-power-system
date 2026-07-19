@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "运行潮流智能体完整演示",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}\\demo_vscode.py",
+      "console": "integratedTerminal",
+      "env": {"PYTHONUTF8": "1"}
+    },
+    {
+      "name": "调试命令行：Q限额算例",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pfagent",
+      "args": [
+        "run",
+        "${workspaceFolder}\\examples\\case3_q_limit.py",
+        "--engine",
+        "pypower",
+        "--out",
+        "${workspaceFolder}\\runs\\debug_q_limit",
+        "--max-rounds",
+        "20"
+      ],
+      "console": "integratedTerminal",
+      "env": {"PYTHONUTF8": "1"}
+    }
+  ]
+}

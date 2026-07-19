@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1. 安装运行环境",
+      "type": "shell",
+      "command": "powershell",
+      "args": ["-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}\\scripts\\setup.ps1"],
+      "problemMatcher": []
+    },
+    {
+      "label": "2. 运行完整演示",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": ["${workspaceFolder}\\demo_vscode.py"],
+      "options": {
+        "env": {"PYTHONUTF8": "1"}
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "3. 运行自动测试",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "pytest", "-q"],
+      "problemMatcher": []
+    },
+    {
+      "label": "4. 检查坏数据",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "pfagent", "inspect", "${workspaceFolder}\\examples\\case3_bad_data.py"],
+      "options": {
+        "env": {"PYTHONUTF8": "1"}
+      },
+      "problemMatcher": []
+    }
+  ]
+}
